@@ -1,1 +1,375 @@
-{"_comment":"This file is generated. Please edit .homeycompose/app.json instead.","id":"nl.elro","version":"3.1.1","compatibility":">=5.0.0","sdk":3,"category":["appliances","lights"],"name":{"en":"Elro","nl":"Elro"},"description":{"en":"Home is not a place, it's a feeling","nl":"Home is not a place, it's a feeling"},"images":{"xlarge":"./assets/images/xlarge.png","large":"./assets/images/large.png","small":"./assets/images/small.png"},"brandColor":"#767676","platforms":["local","cloud"],"permissions":["homey:wireless:433"],"author":{"name":"Athom B.V."},"support":"https://support.athom.com/hc/en-us/requests/new","flow":{"triggers":[{"id":"AB440R:received","title":{"en":"Button is pressed","nl":"Knop is ingedrukt"},"titleFormatted":{"en":"[[unit]] [[state]] is pressed","nl":"[[unit]] [[state]] is ingedrukt"},"args":[{"type":"device","name":"device","filter":"driver_id=AB440R"},{"name":"unit","type":"dropdown","title":{"en":"Button","nl":"Knop"},"values":[{"id":"10000","label":{"en":"Button A","nl":"Knop A"}},{"id":"01000","label":{"en":"Button B","nl":"Knop B"}},{"id":"00100","label":{"en":"Button C","nl":"Knop C"}},{"id":"00010","label":{"en":"Button D","nl":"Knop D"}}]},{"name":"state","type":"dropdown","title":{"en":"State","nl":"Status"},"values":[{"id":"1","label":{"en":"On","nl":"Aan"}},{"id":"0","label":{"en":"Off","nl":"Uit"}}]}]}]},"drivers":[{"images":{"large":"/drivers/AB440R/assets/images/large.jpg","small":"/drivers/AB440R/assets/images/small.jpg"},"icon":"/drivers/AB440R/assets/icon.svg","platforms":["local","cloud"],"connectivity":["rf433"],"capabilities":[],"id":"AB440R","name":{"en":"AB440R Remote","nl":"AB440R Afstandsbediening"},"class":"remote","pair":[{"id":"rf_transmitter_learn","options":{"title":{"en":"Copy your remote signal","nl":"Kopieer het signaal van de afstandsbediening"},"instruction":{"en":"Click a button on your remote to pair it.","nl":"Klik op een willekeurige knop op de afstandsbediening om hem te koppelen."}}}]},{"images":{"large":"/drivers/AB440SC/assets/images/large.jpg","small":"/drivers/AB440SC/assets/images/small.jpg"},"icon":"/drivers/AB440SC/assets/icon.svg","platforms":["local","cloud"],"connectivity":["rf433"],"capabilities":["onoff"],"id":"AB440SC","name":{"en":"AB440SC Socket","nl":"AB440SC Schakelaar"},"class":"socket","rf433":{"satelliteMode":true},"pair":[{"id":"rf_receiver_learn","navigation":{"next":"rf_dipswitch"},"options":{"title":{"en":"Copy the dipswitches","nl":"Kopieer de dipswitches"},"instruction":{"en":"Add the device by manually setting the dipswitches.","nl":"Voeg het apparaat toe door handmatig de dipswitches in te instellen."},"copyFromRemote":{"en":"Copy from remote","nl":"Kopieer van afstandsbediening"}}},{"id":"rf_dipswitch","navigation":{"prev":"rf_receiver_learn"},"options":{"title":{"en":"Copy the dipswitches","nl":"Kopieer de dipswitches"},"instruction":{"en":"Click on the dipswitches to put them in the same arrangement as those of your device, plug in the socket, then press the checkmark.","nl":"Klik op de bovenstaande dipswitches om ze gelijk aan de dipswitches van het apparaat in te stellen, druk daarna op het vinkje."},"dipswitchList":[1,2,3,4,5,["A","B","C","D","E"]]}},{"id":"rf_transmitter_learn","navigation":{"prev":"rf_receiver_learn"},"options":{"title":{"en":"Copy your remote signal","nl":"Kopieer het signaal van de afstandsbediening"},"instruction":{"en":"Press the button that is paired to your socket.","nl":"Druk op de knop van de afstandsbediening waarmee het apparaat gekoppeld is."}}}]},{"images":{"large":"/drivers/AB440WD/assets/images/large.jpg","small":"/drivers/AB440WD/assets/images/small.jpg"},"icon":"/drivers/AB440WD/assets/icon.svg","platforms":["local","cloud"],"connectivity":["rf433"],"capabilities":["onoff"],"id":"AB440WD","name":{"en":"AB440WD Socket","nl":"AB440WD Schakelaar"},"class":"socket","rf433":{"satelliteMode":true},"pair":[{"id":"rf_receiver_learn","navigation":{"next":"rf_dipswitch"},"options":{"title":{"en":"Copy the dipswitches","nl":"Kopieer de dipswitches"},"instruction":{"en":"Add the device by manually setting the dipswitches.","nl":"Voeg het apparaat toe door handmatig de dipswitches in te instellen."},"copyFromRemote":{"en":"Copy from remote","nl":"Kopieer van afstandsbediening"}}},{"id":"rf_dipswitch","navigation":{"prev":"rf_receiver_learn"},"options":{"title":{"en":"Copy the dipswitches","nl":"Kopieer de dipswitches"},"instruction":{"en":"Click on the dipswitches to put them in the same arrangement as those of your device, plug in the socket, then press the checkmark.","nl":"Klik op de bovenstaande dipswitches om ze gelijk aan de dipswitches van het apparaat in te stellen, druk daarna op het vinkje."},"dipswitchList":[1,2,3,4,5,["A","B","C","D","E"]]}},{"id":"rf_transmitter_learn","navigation":{"prev":"rf_receiver_learn"},"options":{"title":{"en":"Copy your remote signal","nl":"Kopieer het signaal van de afstandsbediening"},"instruction":{"en":"Press the button that is paired to your socket.","nl":"Druk op de knop van de afstandsbediening waarmee het apparaat gekoppeld is."}}}]}],"signals":{"433":{"elro":{"sof":[],"eof":[331],"words":[[322,1066,1018,367],[330,1058,329,1057]],"interval":9940,"repetitions":10,"sensitivity":0.5,"minimalLength":12,"maximalLength":12}}}}
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "nl.elro",
+  "version": "3.1.1",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "category": [
+    "appliances",
+    "lights"
+  ],
+  "name": {
+    "en": "Elro",
+    "nl": "Elro"
+  },
+  "description": {
+    "en": "Home is not a place, it's a feeling",
+    "nl": "Home is not a place, it's a feeling"
+  },
+  "images": {
+    "xlarge": "./assets/images/xlarge.png",
+    "large": "./assets/images/large.png",
+    "small": "./assets/images/small.png"
+  },
+  "brandColor": "#767676",
+  "platforms": [
+    "local",
+    "cloud"
+  ],
+  "permissions": [
+    "homey:wireless:433"
+  ],
+  "author": {
+    "name": "Athom B.V."
+  },
+  "support": "https://support.athom.com/hc/en-us/requests/new",
+  "flow": {
+    "triggers": [
+      {
+        "id": "AB440R:received",
+        "title": {
+          "en": "Button is pressed",
+          "nl": "Knop is ingedrukt"
+        },
+        "titleFormatted": {
+          "en": "[[unit]] [[state]] is pressed",
+          "nl": "[[unit]] [[state]] is ingedrukt"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=AB440R"
+          },
+          {
+            "name": "unit",
+            "type": "dropdown",
+            "title": {
+              "en": "Button",
+              "nl": "Knop"
+            },
+            "values": [
+              {
+                "id": "10000",
+                "label": {
+                  "en": "Button A",
+                  "nl": "Knop A"
+                }
+              },
+              {
+                "id": "01000",
+                "label": {
+                  "en": "Button B",
+                  "nl": "Knop B"
+                }
+              },
+              {
+                "id": "00100",
+                "label": {
+                  "en": "Button C",
+                  "nl": "Knop C"
+                }
+              },
+              {
+                "id": "00010",
+                "label": {
+                  "en": "Button D",
+                  "nl": "Knop D"
+                }
+              }
+            ]
+          },
+          {
+            "name": "state",
+            "type": "dropdown",
+            "title": {
+              "en": "State",
+              "nl": "Status"
+            },
+            "values": [
+              {
+                "id": "1",
+                "label": {
+                  "en": "On",
+                  "nl": "Aan"
+                }
+              },
+              {
+                "id": "0",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "images": {
+        "large": "/drivers/AB440R/assets/images/large.jpg",
+        "small": "/drivers/AB440R/assets/images/small.jpg"
+      },
+      "icon": "/drivers/AB440R/assets/icon.svg",
+      "platforms": [
+        "local",
+        "cloud"
+      ],
+      "connectivity": [
+        "rf433"
+      ],
+      "capabilities": [],
+      "id": "AB440R",
+      "name": {
+        "en": "AB440R Remote",
+        "nl": "AB440R Afstandsbediening"
+      },
+      "class": "remote",
+      "pair": [
+        {
+          "id": "rf_transmitter_learn",
+          "options": {
+            "title": {
+              "en": "Copy your remote signal",
+              "nl": "Kopieer het signaal van de afstandsbediening"
+            },
+            "instruction": {
+              "en": "Click a button on your remote to pair it.",
+              "nl": "Klik op een willekeurige knop op de afstandsbediening om hem te koppelen."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "images": {
+        "large": "/drivers/AB440SC/assets/images/large.jpg",
+        "small": "/drivers/AB440SC/assets/images/small.jpg"
+      },
+      "icon": "/drivers/AB440SC/assets/icon.svg",
+      "platforms": [
+        "local",
+        "cloud"
+      ],
+      "connectivity": [
+        "rf433"
+      ],
+      "capabilities": [
+        "onoff"
+      ],
+      "id": "AB440SC",
+      "name": {
+        "en": "AB440SC Socket",
+        "nl": "AB440SC Schakelaar"
+      },
+      "class": "socket",
+      "rf433": {
+        "satelliteMode": true
+      },
+      "pair": [
+        {
+          "id": "rf_receiver_learn",
+          "navigation": {
+            "next": "rf_dipswitch"
+          },
+          "options": {
+            "title": {
+              "en": "Copy the dipswitches",
+              "nl": "Kopieer de dipswitches"
+            },
+            "instruction": {
+              "en": "Add the device by manually setting the dipswitches.",
+              "nl": "Voeg het apparaat toe door handmatig de dipswitches in te instellen."
+            },
+            "copyFromRemote": {
+              "en": "Copy from remote",
+              "nl": "Kopieer van afstandsbediening"
+            }
+          }
+        },
+        {
+          "id": "rf_dipswitch",
+          "navigation": {
+            "prev": "rf_receiver_learn"
+          },
+          "options": {
+            "title": {
+              "en": "Copy the dipswitches",
+              "nl": "Kopieer de dipswitches"
+            },
+            "instruction": {
+              "en": "Click on the dipswitches to put them in the same arrangement as those of your device, plug in the socket, then press the checkmark.",
+              "nl": "Klik op de bovenstaande dipswitches om ze gelijk aan de dipswitches van het apparaat in te stellen, druk daarna op het vinkje."
+            },
+            "dipswitchList": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E"
+              ]
+            ]
+          }
+        },
+        {
+          "id": "rf_transmitter_learn",
+          "navigation": {
+            "prev": "rf_receiver_learn"
+          },
+          "options": {
+            "title": {
+              "en": "Copy your remote signal",
+              "nl": "Kopieer het signaal van de afstandsbediening"
+            },
+            "instruction": {
+              "en": "Press the button that is paired to your socket.",
+              "nl": "Druk op de knop van de afstandsbediening waarmee het apparaat gekoppeld is."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "images": {
+        "large": "/drivers/AB440WD/assets/images/large.jpg",
+        "small": "/drivers/AB440WD/assets/images/small.jpg"
+      },
+      "icon": "/drivers/AB440WD/assets/icon.svg",
+      "platforms": [
+        "local",
+        "cloud"
+      ],
+      "connectivity": [
+        "rf433"
+      ],
+      "capabilities": [
+        "onoff"
+      ],
+      "id": "AB440WD",
+      "name": {
+        "en": "AB440WD Socket",
+        "nl": "AB440WD Schakelaar"
+      },
+      "class": "socket",
+      "rf433": {
+        "satelliteMode": true
+      },
+      "pair": [
+        {
+          "id": "rf_receiver_learn",
+          "navigation": {
+            "next": "rf_dipswitch"
+          },
+          "options": {
+            "title": {
+              "en": "Copy the dipswitches",
+              "nl": "Kopieer de dipswitches"
+            },
+            "instruction": {
+              "en": "Add the device by manually setting the dipswitches.",
+              "nl": "Voeg het apparaat toe door handmatig de dipswitches in te instellen."
+            },
+            "copyFromRemote": {
+              "en": "Copy from remote",
+              "nl": "Kopieer van afstandsbediening"
+            }
+          }
+        },
+        {
+          "id": "rf_dipswitch",
+          "navigation": {
+            "prev": "rf_receiver_learn"
+          },
+          "options": {
+            "title": {
+              "en": "Copy the dipswitches",
+              "nl": "Kopieer de dipswitches"
+            },
+            "instruction": {
+              "en": "Click on the dipswitches to put them in the same arrangement as those of your device, plug in the socket, then press the checkmark.",
+              "nl": "Klik op de bovenstaande dipswitches om ze gelijk aan de dipswitches van het apparaat in te stellen, druk daarna op het vinkje."
+            },
+            "dipswitchList": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E"
+              ]
+            ]
+          }
+        },
+        {
+          "id": "rf_transmitter_learn",
+          "navigation": {
+            "prev": "rf_receiver_learn"
+          },
+          "options": {
+            "title": {
+              "en": "Copy your remote signal",
+              "nl": "Kopieer het signaal van de afstandsbediening"
+            },
+            "instruction": {
+              "en": "Press the button that is paired to your socket.",
+              "nl": "Druk op de knop van de afstandsbediening waarmee het apparaat gekoppeld is."
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "signals": {
+    "433": {
+      "elro": {
+        "sof": [],
+        "eof": [
+          331
+        ],
+        "words": [
+          [
+            322,
+            1066,
+            1018,
+            367
+          ],
+          [
+            330,
+            1058,
+            329,
+            1057
+          ]
+        ],
+        "interval": 9940,
+        "repetitions": 10,
+        "sensitivity": 0.5,
+        "minimalLength": 12,
+        "maximalLength": 12
+      }
+    }
+  }
+}
