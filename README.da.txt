@@ -1,0 +1,1 @@
+Tilføjer support til trådløse Elro-enheder.

@@ -1,0 +1,1 @@
+Ajoute la prise en charge des appareils sans fil Elro.

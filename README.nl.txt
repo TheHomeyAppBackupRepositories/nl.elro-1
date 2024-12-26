@@ -1,0 +1,1 @@
+Voegt ondersteuning toe voor draadloze Elro-apparaten.

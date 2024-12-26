@@ -1,0 +1,1 @@
+Aggiunge il supporto per i dispositivi wireless Elro.

@@ -1,0 +1,1 @@
+Lägger till stöd för trådlösa Elro-enheter.

@@ -1,0 +1,1 @@
+Añade soporte para dispositivos inalámbricos Elro.

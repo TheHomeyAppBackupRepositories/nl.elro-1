@@ -1,0 +1,1 @@
+Dodaje obsługę bezprzewodowych urządzeń Elro.

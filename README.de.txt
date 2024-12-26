@@ -1,0 +1,1 @@
+Fügt Unterstützung für kabellose Elro-Geräte hinzu.

@@ -1,0 +1,1 @@
+Legger til støtte for trådløse Elro-enheter.
